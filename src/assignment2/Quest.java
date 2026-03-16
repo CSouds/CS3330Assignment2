@@ -1,5 +1,4 @@
-package assignment2;
 
-public class Quest {
+public interface Quest {
 
 }
