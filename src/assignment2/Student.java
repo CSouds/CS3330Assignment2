@@ -15,9 +15,27 @@ public class Student {
 		this.points = 0;
 	}
 	
-	public getName()
+	public String getName()
 	{
 		return this.name;
+	}
+	
+	public int getPoints()
+	{
+		return this.points;
+	}
+	
+	public void addPoints(int amount)
+	{
+		if(getPoints() - amount < 0)
+			throw new IllegalArgumentException("Points minus addition < 0");
+		this.points += amount;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "Student [name=" + name + ", points=", points"]";
 	}
 	
 	@Override
