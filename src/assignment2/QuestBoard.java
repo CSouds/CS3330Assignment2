@@ -18,7 +18,7 @@ public class QuestBoard {
 	public void addQuest(Quest q)
 	{
 		int qId = q.getId();
-		if(questById.containsValue(qId))
+		if(questById.containsKey(qId))
 			throw new IllegalArgumentException("ID taken by other quest.");
 		questById.put(qId, q);
 	}
@@ -32,7 +32,7 @@ public class QuestBoard {
 	{
 		Quest q = findQuest(questId);
 		
-		if(!(assignments.containsValue(s)))
+		if(!(assignments.containsKey(s)))
 			assignments.put(s, new ArrayList<Quest>());
 		
 		List<Quest> list= assignments.get(s);
