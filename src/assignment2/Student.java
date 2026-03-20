@@ -1,3 +1,5 @@
+package assignment2;
+
 import java.util.Objects;
 
 public class Student {
@@ -6,7 +8,7 @@ public class Student {
 	
 	public Student(String name)
 	{
-		if(!name)
+		if(name.isEmpty() || name == null)
 		{
 			throw new IllegalArgumentException("Invalid name");
 		}
@@ -35,7 +37,7 @@ public class Student {
 	@Override
 	public String toString()
 	{
-		return "Student [name=" + name + ", points=", points"]";
+		return "Student [name=" + name + ", points=" + points + "]";
 	}
 	
 	@Override
@@ -53,7 +55,6 @@ public class Student {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.name.intValue());
+		return Objects.hash(name, points);
 	}
-	
 }

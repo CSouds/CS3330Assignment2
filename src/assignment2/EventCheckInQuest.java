@@ -1,8 +1,9 @@
+package assignment2;
 
 public class EventCheckInQuest extends AbstractQuest {
 	private final String eventName;
 	
-	public EventCheckInQuest(int id, String title. int basePoints, String eventName)
+	public EventCheckInQuest(int id, String title, int basePoints, String eventName)
 	{
 		super(id,title,basePoints);
 		
@@ -36,12 +37,12 @@ public class EventCheckInQuest extends AbstractQuest {
 		return awarded;
 	}
 	
-	@Override String toString()
+	@Override public String toString()
 	{
 		return "EventCheckInQuest{id=" + getId() +
 				", title = '" + getTitle() + '\'' +
 				", basePoints = " + getBasePoints() +
-				", completed = " + is Completed() +
+				", completed = " + isCompleted() +
 				", eventName = '" + eventName + '\'' +
 				"}";
 	}

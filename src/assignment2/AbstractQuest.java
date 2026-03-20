@@ -19,7 +19,7 @@ public abstract class AbstractQuest implements Quest
 		}
 		if(basePoints <= 0)
 		{
-			throw new IllegalArgumentException("Quest base points must be > 0.")
+			throw new IllegalArgumentException("Quest base points must be > 0.");
 		}
 		this.id = id;
 		this.title = title;

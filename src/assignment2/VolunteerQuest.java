@@ -1,3 +1,4 @@
+package assignment2;
 
 public class VolunteerQuest extends AbstractQuest{
 
@@ -5,7 +6,7 @@ public class VolunteerQuest extends AbstractQuest{
 	
 	public VolunteerQuest(int id, String title, int basePoints, int hours)
 	{
-		super(id,title,basepoints);
+		super( id, title, basePoints);
 		
 		if(hours <= 0)
 		{

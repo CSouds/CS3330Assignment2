@@ -1,5 +1,9 @@
-import java.util.HashSet;
+package assignment2;
+
+import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 
 public class QuestBoard {
 	Map<Integer, Quest> questById;
@@ -7,13 +11,13 @@ public class QuestBoard {
 	
 	public QuestBoard()
 	{
-		questById = new Map<>;
-		assignments = new Map<>;
+		questById = new HashMap<>();
+		assignments = new HashMap<>();
 	}
 	
 	public void addQuest(Quest q)
 	{
-		qId = q.getId();
+		int qId = q.getId();
 		if(questById.containsValue(qId))
 			throw new IllegalArgumentException("ID taken by other quest.");
 		questById.put(qId, q);
@@ -29,15 +33,15 @@ public class QuestBoard {
 		Quest q = findQuest(questId);
 		
 		if(!(assignments.containsValue(s)))
-			assignments.put(s, new ArrayList<Quest>);
+			assignments.put(s, new ArrayList<Quest>());
 		
-		list = assignments.get(s);
+		List<Quest> list= assignments.get(s);
 		list.add(q);
 	}
 	
 	public void printAllQuests()
 	{
-		for(Map.entry<Integer, Quest> entry : map.entrySet())
+		for(Map.Entry<Integer, Quest> entry : questById.entrySet())
 		{
 			System.out.println("ID: " + entry.getKey() + ", Quest");
 		}
@@ -47,7 +51,7 @@ public class QuestBoard {
 	{
 		for(Quest q : assignments.get(s))
 		{
-			q.print();
+			System.out.println(q.toString());
 		}
 	}
 }
