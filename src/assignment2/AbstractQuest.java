@@ -1,6 +1,6 @@
 package assignment2;
 
-public abstract class AbstractQuest 
+public abstract class AbstractQuest implements Quest
 {
 	private final int id;
 	private final String title;
@@ -28,7 +28,7 @@ public abstract class AbstractQuest
 	}
 	
 	@Override
-	public int getID()
+	public int getId()
 	{
 		return id;
 	}
