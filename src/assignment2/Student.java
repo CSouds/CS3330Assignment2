@@ -29,7 +29,7 @@ public class Student {
 	
 	public void addPoints(int amount)
 	{
-		if(getPoints() - amount < 0)
+		if(getPoints() + amount < 0)
 			throw new IllegalArgumentException("Points minus addition < 0");
 		this.points += amount;
 	}

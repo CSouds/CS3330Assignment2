@@ -53,7 +53,10 @@ public abstract class AbstractQuest implements Quest
 	
 	void markCompleted()
 	{
-		this.completed = true;
+		if(completed == false)
+			this.completed = true;
+		else
+			throw new IllegalStateException("Quest already marked complete.");
 	}
 	
 	@Override

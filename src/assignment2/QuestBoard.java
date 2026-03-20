@@ -36,14 +36,25 @@ public class QuestBoard {
 			assignments.put(s, new ArrayList<Quest>());
 		
 		List<Quest> list= assignments.get(s);
-		list.add(q);
+		
+		if(!list.contains(q)) // design choice: same quest ID cannot be assigned to student twice
+		{
+			list.add(q);
+		} // acts as if quest was still added if it is double added in case user was unsure of state
+	}
+	
+	public void completeQuest(Student s, int questId)
+	{
+		Quest q = findQuest(questId);
+		
+		q.completeFor(s);
 	}
 	
 	public void printAllQuests()
 	{
-		for(Map.Entry<Integer, Quest> entry : questById.entrySet())
+		for(Quest q : questById.values())
 		{
-			System.out.println("ID: " + entry.getKey() + ", Quest");
+			System.out.println(q.toString());
 		}
 	}
 	
