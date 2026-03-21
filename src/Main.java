@@ -7,7 +7,7 @@ public class Main {
 		
 		Student s1 = new Student("Connor"); // initializing students
 		Student s2 = new Student("Chris");
-		Student s3 = new Student("Connor");
+		Student s3 = new Student("Bobby");
 		
 		Quest sq1 = new StreakQuest(1, "quest one", 10, 3); // initializing quests and adding them to board
 		b.addQuest(sq1);
@@ -35,6 +35,8 @@ public class Main {
 		b.completeQuest(s2,  vq1.getId());
 		
 		b.printAllQuests(); // view new completions
+		
+		System.out.println("s3 points: " + s3.getPoints());
 		
 		b.completeQuest(s1, eq1.getId()); // invalid behavior: completes quest student does not have
 	}

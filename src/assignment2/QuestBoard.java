@@ -31,6 +31,8 @@ public class QuestBoard {
 	public void assignQuest(Student s, int questId) // design choice: allows duplicate quest for student
 	{
 		Quest q = findQuest(questId);
+		if(q == null)
+			throw new IllegalArgumentException("Quest does not exist");
 		
 		if(!(assignments.containsKey(s)))
 			assignments.put(s, new ArrayList<Quest>());
@@ -46,13 +48,15 @@ public class QuestBoard {
 	public void completeQuest(Student s, int questId)
 	{
 		List<Quest> list= assignments.get(s);
+		if(list == null)
+			throw new IllegalStateException("Student assigned no quests");
 		
 		Quest q = findQuest(questId);
 		
 		if(list.contains(q))
 			q.completeFor(s);
 		else
-			throw new IllegalStateException();
+			throw new IllegalStateException("Student not assigned quest");
 	}
 	
 	public void printAllQuests()
@@ -65,7 +69,11 @@ public class QuestBoard {
 	
 	public void printAssignmentsFor(Student s)
 	{
-		for(Quest q : assignments.get(s))
+		List<Quest>  list = assignments.get(s);
+		if(list == null)
+			throw new IllegalStateException("Student assigned no quests");
+		
+		for(Quest q : list)
 		{
 			System.out.println(q.toString());
 		}
