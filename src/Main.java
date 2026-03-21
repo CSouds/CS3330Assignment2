@@ -1,13 +1,23 @@
+import java.util.HashSet;
+import java.util.Set;
+
 import assignment2.*;
 
 public class Main {
 
 	public static void main(String[] args) {
 		QuestBoard b = new QuestBoard(); // initializing board
+		Set<Student> s = new HashSet<>();
 		
 		Student s1 = new Student("Connor"); // initializing students
+		s.add(s1);
 		Student s2 = new Student("Chris");
+		s.add(s2);
 		Student s3 = new Student("Bobby");
+		s.add(s3);
+		Student s4 = new Student("Bobby");
+		s.add(s4);
+		System.out.println("Student set size: " + s.size());
 		
 		Quest sq1 = new StreakQuest(1, "quest one", 10, 3); // initializing quests and adding them to board
 		b.addQuest(sq1);
@@ -27,15 +37,26 @@ public class Main {
 		b.assignQuest(s3, eq2.getId());
 		b.assignQuest(s2, vq1.getId());
 		
-		b.printAssignmentsFor(s3); // print quests to view
+		System.out.println("Student assignments:");
+		System.out.println("Student 1:");
+		b.printAssignmentsFor(s1); // print quests to view
+		System.out.println("Student 2:");
+		b.printAssignmentsFor(s2);
+		System.out.println("Student 3:");
+		b.printAssignmentsFor(s3);
+		
+		System.out.println("All incomplete quests:");
 		b.printAllQuests();
 		
 		b.completeQuest(s3, sq1.getId()); // complete some quests
 		b.completeQuest(s3, eq2.getId());
 		b.completeQuest(s2,  vq1.getId());
 		
-		b.printAllQuests(); // view new completions
+		System.out.println("All completed quests:");
+		b.printAllQuests();
 		
+		System.out.println("s1 points: " + s1.getPoints());
+		System.out.println("s2 points: " + s2.getPoints());
 		System.out.println("s3 points: " + s3.getPoints());
 		
 		b.completeQuest(s1, eq1.getId()); // invalid behavior: completes quest student does not have

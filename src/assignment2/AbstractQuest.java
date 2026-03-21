@@ -66,8 +66,5 @@ public abstract class AbstractQuest implements Quest
 				", title = '" + title + '\'' +
 				", basePoints =" + basePoints +
 				", completed=" + completed + "}";
-				
 	}
-	
-	
 }

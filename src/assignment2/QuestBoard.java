@@ -45,16 +45,18 @@ public class QuestBoard {
 		} // acts as if quest was still added if it is double added in case user was unsure of state
 	}
 	
-	public void completeQuest(Student s, int questId)
+	public int completeQuest(Student s, int questId)
 	{
 		List<Quest> list= assignments.get(s);
 		if(list == null)
 			throw new IllegalStateException("Student assigned no quests");
 		
 		Quest q = findQuest(questId);
+		if(q == null)
+		    throw new IllegalArgumentException("Quest does not exist: " + questId);
 		
 		if(list.contains(q))
-			q.completeFor(s);
+			return q.completeFor(s);
 		else
 			throw new IllegalStateException("Student not assigned quest");
 	}
