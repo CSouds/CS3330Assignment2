@@ -8,7 +8,7 @@ public class Student {
 	
 	public Student(String name)
 	{
-		if(name.isEmpty() || name == null)
+		if(name == null || name.isEmpty())
 		{
 			throw new IllegalArgumentException("Invalid name");
 		}
@@ -46,15 +46,11 @@ public class Student {
 		if(!(obj instanceof Student))
 			return false;
 		Student s = (Student) obj;
-		if(getName() == s.getName())
-		{
-			return true;
-		}
-		return false;
+		return getName().equals(s.getName());
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, points);
+		return Objects.hash(name);
 	}
 }

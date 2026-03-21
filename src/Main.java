@@ -3,13 +3,13 @@ import assignment2.*;
 public class Main {
 
 	public static void main(String[] args) {
-		Student s1 = new Student("Connor");
+		QuestBoard b = new QuestBoard(); // initializing board
+		
+		Student s1 = new Student("Connor"); // initializing students
 		Student s2 = new Student("Chris");
 		Student s3 = new Student("Connor");
 		
-		QuestBoard b = new QuestBoard();
-		
-		Quest sq1 = new StreakQuest(1, "quest one", 10, 3);
+		Quest sq1 = new StreakQuest(1, "quest one", 10, 3); // initializing quests and adding them to board
 		b.addQuest(sq1);
 		Quest sq2 = new StreakQuest(2, "quest two", 14, 5);
 		b.addQuest(sq2);
@@ -22,16 +22,19 @@ public class Main {
 		Quest eq2 = new EventCheckInQuest(6, "quest six", 6, "awards");
 		b.addQuest(eq2);
 		
-		b.assignQuest(s3, sq1.getId());
+		b.assignQuest(s3, sq1.getId()); // assigning quests
 		b.assignQuest(s1, sq2.getId());
 		b.assignQuest(s3, eq2.getId());
 		b.assignQuest(s2, vq1.getId());
 		
-		b.completeQuest(s3, sq1.getId());
+		b.printAssignmentsFor(s3); // print quests to view
+		b.printAllQuests();
+		
+		b.completeQuest(s3, sq1.getId()); // complete some quests
 		b.completeQuest(s3, eq2.getId());
 		b.completeQuest(s2,  vq1.getId());
 		
-		b.printAllQuests();
+		b.printAllQuests(); // view new completions
 		
 		b.completeQuest(s1, eq1.getId()); // invalid behavior: completes quest student does not have
 	}

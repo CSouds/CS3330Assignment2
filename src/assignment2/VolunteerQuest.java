@@ -41,7 +41,7 @@ public class VolunteerQuest extends AbstractQuest{
 	@Override
 	public String toString()
 	{
-		return "EventCheckInQuest{id=" + getId() +
+		return "VolunteerQuest{id=" + getId() +
 				", title = '" + getTitle() + '\'' +
 				", basePoints = " + getBasePoints() +
 				", completed = " + isCompleted() +

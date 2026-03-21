@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class QuestBoard {
-	Map<Integer, Quest> questById;
-	Map<Student, List<Quest>> assignments;
+	private Map<Integer, Quest> questById;
+	private Map<Student, List<Quest>> assignments;
 	
 	public QuestBoard()
 	{
@@ -45,9 +45,14 @@ public class QuestBoard {
 	
 	public void completeQuest(Student s, int questId)
 	{
+		List<Quest> list= assignments.get(s);
+		
 		Quest q = findQuest(questId);
 		
-		q.completeFor(s);
+		if(list.contains(q))
+			q.completeFor(s);
+		else
+			throw new IllegalStateException();
 	}
 	
 	public void printAllQuests()

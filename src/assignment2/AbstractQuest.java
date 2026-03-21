@@ -9,7 +9,7 @@ public abstract class AbstractQuest implements Quest
 	
 	public AbstractQuest(int id, String title, int basePoints)
 	{
-		if(id <= 0)
+		if(id <= 0) // validate id
 		{
 			throw new IllegalArgumentException("Quest id must be > 0.");
 		}
