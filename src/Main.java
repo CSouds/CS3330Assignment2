@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -55,9 +56,10 @@ public class Main {
 		System.out.println("All completed quests:");
 		b.printAllQuests();
 		
-		System.out.println("s1 points: " + s1.getPoints());
+		System.out.println("s1 points: " + s1.getPoints()); // print all points
 		System.out.println("s2 points: " + s2.getPoints());
 		System.out.println("s3 points: " + s3.getPoints());
+		System.out.println("Total points: " + RewardUtil.sumPoints(new ArrayList<>(s)));
 		
 		b.completeQuest(s1, eq1.getId()); // invalid behavior: completes quest student does not have
 	}

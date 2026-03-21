@@ -6,9 +6,9 @@ public class VolunteerQuest extends AbstractQuest{
 	
 	public VolunteerQuest(int id, String title, int basePoints, int hours)
 	{
-		super( id, title, basePoints);
+		super(id, title, basePoints); // call super constructor for shared methods
 		
-		if(hours <= 0)
+		if(hours <= 0) // hours must be positive
 		{
 			throw new IllegalArgumentException("Hours must be > 0");
 		}
@@ -16,13 +16,13 @@ public class VolunteerQuest extends AbstractQuest{
 		this.hours = hours;
 	}
 	
-	public int getHours()
+	public int getHours() // getter for hours
 	{
 		return hours;
 	}
 	
 	@Override
-	public int completeFor(Student s)
+	public int completeFor(Student s) // complete a quest and add the points to the students
 	{
 		if(s == null)
 		{
@@ -33,13 +33,13 @@ public class VolunteerQuest extends AbstractQuest{
 			throw new IllegalStateException("Quest is already completed");
 		}
 		
-		int awarded = getBasePoints() * hours;
+		int awarded = getBasePoints() * hours; // add the points and mark complete
 		s.addPoints(awarded);
 		markCompleted();
 		return awarded;
 	}
 	@Override
-	public String toString()
+	public String toString() // toString for printing
 	{
 		return "VolunteerQuest{id=" + getId() +
 				", title = '" + getTitle() + '\'' +

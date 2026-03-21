@@ -13,11 +13,11 @@ public abstract class AbstractQuest implements Quest
 		{
 			throw new IllegalArgumentException("Quest id must be > 0.");
 		}
-		if(title == null || title.isBlank())
+		if(title == null || title.isBlank()) // title must be not null
 		{
 			throw new IllegalArgumentException("Quest title must not be null or blank.");
 		}
-		if(basePoints <= 0)
+		if(basePoints <= 0) // points must always be 0
 		{
 			throw new IllegalArgumentException("Quest base points must be > 0.");
 		}
@@ -28,30 +28,30 @@ public abstract class AbstractQuest implements Quest
 	}
 	
 	@Override
-	public int getId()
+	public int getId() // id getter
 	{
 		return id;
 	}
 	
 	@Override
-	public String getTitle()
+	public String getTitle() // title getter
 	{
 		return title;
 	}
 	
 	@Override
-	public int getBasePoints()
+	public int getBasePoints() // points getter
 	{
 		return basePoints;
 	}
 	
 	@Override
-	public boolean isCompleted()
+	public boolean isCompleted() // check completed
 	{
 		return completed;
 	}
 	
-	void markCompleted()
+	void markCompleted() // mark as completed
 	{
 		if(completed == false)
 			this.completed = true;
@@ -60,7 +60,7 @@ public abstract class AbstractQuest implements Quest
 	}
 	
 	@Override
-	public String toString()
+	public String toString() // to string for printing
 	{
 		return "Quest{id=" + id +
 				", title = '" + title + '\'' +

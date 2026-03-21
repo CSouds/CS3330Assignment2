@@ -5,9 +5,9 @@ public class EventCheckInQuest extends AbstractQuest {
 	
 	public EventCheckInQuest(int id, String title, int basePoints, String eventName)
 	{
-		super(id,title,basePoints);
+		super(id, title, basePoints); // super constructor for shared values
 		
-		if(eventName == null || eventName.isBlank())
+		if(eventName == null || eventName.isBlank()) // check valid name
 		{
 			throw new IllegalArgumentException("Event name must not be null or blank.");
 		}
@@ -15,12 +15,13 @@ public class EventCheckInQuest extends AbstractQuest {
 		this.eventName = eventName;
 	}
 
-	public String getEventName()
+	public String getEventName() // get event name
 	{
 		return eventName;
 	}
 	
-	@Override public int completeFor(Student s)
+	@Override
+	public int completeFor(Student s) // complete quest and add points
 	{
 		if(s == null)
 		{
@@ -31,13 +32,14 @@ public class EventCheckInQuest extends AbstractQuest {
 			throw new IllegalStateException("Quest is already completed.");
 		}
 		
-		int awarded = getBasePoints();
+		int awarded = getBasePoints(); // completes and points are added
 		s.addPoints(awarded);
 		markCompleted();
 		return awarded;
 	}
 	
-	@Override public String toString()
+	@Override
+	public String toString() // toString for printing
 	{
 		return "EventCheckInQuest{id=" + getId() +
 				", title = '" + getTitle() + '\'' +
